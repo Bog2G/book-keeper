@@ -1,6 +1,5 @@
 import "./App.css";
-import Books from "./components/Books";
-
+import Books from "./components/Books/Books";
 function App() {
   const books = [
     {

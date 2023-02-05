@@ -1,9 +1,10 @@
 import Book from "./Book";
 import "./Books.css";
+import Card from "../Card";
 
 export default function Books(props) {
   return (
-    <div className="booksfield">
+    <Card>
       <Book
         title={props.data[0].title}
         author={props.data[0].author}
@@ -19,6 +20,6 @@ export default function Books(props) {
         author={props.data[2].author}
         start={props.data[2].startDate}
       />
-    </div>
+    </Card>
   );
 }
