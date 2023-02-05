@@ -1,0 +1,40 @@
+.book {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: 2px solid black;
+  border-radius: 11px;
+  background-color: #484848;
+  margin-bottom: 8px;
+}
+
+.book-data-1 {
+  padding-left: 1.5rem;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  width: 100px;
+}
+
+.book-data-1 p {
+  font-size: small;
+}
+
+.book-data-2 {
+  margin-left: 3.8rem;
+  margin-top: 5px;
+}
+
+.book-data-3 {
+  margin-left: 3.8rem;
+  overflow-wrap: break-word;
+  display: flex;
+  text-align: center;
+  white-space: normal;
+  width: 140px;
+  align-items: center;
+}
+
+.book-data-4 {
+  margin-left: 3.8rem;
+  padding-right: 1.5rem;
+  margin-top: 1rem;
+}
