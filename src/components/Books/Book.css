@@ -11,6 +11,7 @@
 .book-expanded {
   display: flex;
   cursor: pointer;
+  flex-direction: column;
   border: 2px solid black;
   border-radius: 11px;
   background-color: #484848;
@@ -24,13 +25,36 @@
   width: 100px;
 }
 
+.book-data-1-expanded {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
 .book-data-1 p {
   font-size: small;
+}
+
+.book-data-1-expanded p {
+  font-size: small;
+  margin: 0;
+  padding: 0;
+}
+
+.book-data-1-expanded h4 {
+  margin-bottom: 8px;
 }
 
 .book-data-2 {
   margin-left: 3.8rem;
   margin-top: 5px;
+}
+
+.book-data-2-expanded {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  justify-content: space-evenly;
 }
 
 .book-data-3 {
@@ -43,8 +67,20 @@
   align-items: center;
 }
 
+.book-data-3-expanded {
+  display: flex;
+  text-align: center;
+  width: 600px;
+  margin: 0 auto;
+}
+
 .book-data-4 {
   margin-left: 3.8rem;
   padding-right: 1.5rem;
   margin-top: 1rem;
+}
+
+.book-data-4-expanded {
+  visibility: hidden;
+  position: absolute;
 }
