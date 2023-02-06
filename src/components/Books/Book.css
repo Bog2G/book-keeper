@@ -1,11 +1,21 @@
 .book {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   border: 2px solid black;
   border-radius: 11px;
   background-color: #484848;
   margin-bottom: 8px;
+  cursor: pointer;
+}
+
+.book-expanded {
+  display: flex;
+  cursor: pointer;
+  border: 2px solid black;
+  border-radius: 11px;
+  background-color: #484848;
+  margin-bottom: 8px;
+  height: 200px;
 }
 
 .book-data-1 {

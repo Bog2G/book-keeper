@@ -1,8 +1,14 @@
 import "./Book.css";
+import { useState } from "react";
 
 function Book(props) {
+  const [book, setBook] = useState(false);
+
+  const expandBook = () => {
+    setBook(!book);
+  };
   return (
-    <div className="book">
+    <div onClick={expandBook} className={book ? "book-expanded" : "book"}>
       <div className="book-data-1">
         <h4>{props.title}</h4>
         <p> by {props.author} </p>
