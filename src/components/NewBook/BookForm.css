@@ -1,7 +1,31 @@
+.new-book-inputs {
+  display: flex;
+  flex-direction: column;
+}
+
+.new-book-input input {
+  border-radius: 8px;
+  border: white 1px solid;
+}
+
+.new-book-input input:focus {
+  outline: none;
+}
+
+.new-book-input textarea {
+  border-radius: 8px;
+  border: white 1px solid;
+  resize: none;
+}
+
+.new-book-input textarea:focus {
+  outline: none;
+}
+
 .newBook-action button {
   padding: 9px;
-  background: rgb(13, 85, 35);
-  border: blue;
+  background: #670774;
+  border: #670774;
   border-radius: 8px;
   margin-top: 12px;
   cursor: pointer;

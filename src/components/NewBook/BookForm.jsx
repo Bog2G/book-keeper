@@ -12,7 +12,7 @@ export default function BookForm() {
         <div className="new-book-input">
           <label for="description">Book Description</label>
           <br />
-          <input type="text" name="description" id="description" />
+          <textarea rows="5" cols="20" name="description" id="description" />
         </div>
         <div className="new-book-input">
           <label for="author">Author</label>
