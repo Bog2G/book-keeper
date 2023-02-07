@@ -1,5 +1,6 @@
 import "./App.css";
 import Books from "./components/Books/Books";
+import NewBook from "./components/NewBook/NewBook";
 function App() {
   const books = [
     {
@@ -24,6 +25,7 @@ function App() {
 
   return (
     <div className="main">
+      <NewBook />
       <Books data={books} />
     </div>
   );
