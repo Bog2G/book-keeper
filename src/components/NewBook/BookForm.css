@@ -1,11 +1,29 @@
 .new-book-inputs {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 1.5rem;
+  row-gap: 1rem;
+}
+
+.new-book-input:nth-child(1),
+.new-book-input:nth-child(2) {
+  grid-column: 1 / span 3;
+}
+
+.new-book-input:nth-child(3),
+.new-book-input:nth-child(4),
+.new-book-input:nth-child(5) {
+  grid-column: span 1;
+}
+
+.new-book-input:nth-child(4) {
+  margin-bottom: 1.5rem;
 }
 
 .new-book-input input {
   border-radius: 8px;
   border: white 1px solid;
+  height: 21px;
 }
 
 .new-book-input input:focus {
@@ -19,7 +37,7 @@
 }
 
 .new-book-input textarea:focus {
-  outline: none;
+  outline: transparent;
 }
 
 .newBook-action button {
