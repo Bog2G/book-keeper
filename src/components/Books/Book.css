@@ -5,7 +5,9 @@
   border-radius: 11px;
   background-color: #484848;
   margin-bottom: 8px;
+  height: 100px;
   cursor: pointer;
+  transition: height 0.5s;
 }
 
 .book-expanded {
@@ -16,6 +18,7 @@
   border-radius: 11px;
   background-color: #484848;
   margin-bottom: 8px;
+  transition: height 0.5s;
   height: 200px;
 }
 
@@ -62,7 +65,6 @@
   overflow-wrap: break-word;
   display: flex;
   text-align: center;
-  white-space: normal;
   width: 140px;
   align-items: center;
 }
