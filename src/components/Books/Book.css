@@ -8,6 +8,7 @@
   height: 100px;
   cursor: pointer;
   transition: height 0.5s;
+  align-items: center;
 }
 
 .book-expanded {
