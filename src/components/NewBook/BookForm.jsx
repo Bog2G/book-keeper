@@ -1,7 +1,7 @@
 import "./BookForm.css";
 import { useState } from "react";
 
-export default function BookForm() {
+export default function BookForm(props) {
   // instead of writing multiple states i store every value i need for my inputs in an object and pass it to the state hook
   const [userInput, setUserInput] = useState({
     title: "",
@@ -52,7 +52,8 @@ export default function BookForm() {
       ...userInput,
     };
 
-    console.log(bookData);
+    // this will pass the book data up to the parent component because when i call the prop, it points to a function that does something with the data that i give the prop
+    props.onSaveBook(bookData);
     setUserInput({
       title: "",
       description: "",

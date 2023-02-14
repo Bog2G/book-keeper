@@ -29,9 +29,14 @@ function App() {
     },
   ];
 
+  const addBookHandler = (newBook) => {
+    console.log("In App.js");
+    console.log(newBook);
+  };
+
   return (
     <div className="main">
-      <NewBook />
+      <NewBook onNewBook={addBookHandler} />
       <Books data={books} />
     </div>
   );

@@ -20,6 +20,7 @@
   background-color: #484848;
   margin-bottom: 8px;
   transition: height 0.5s;
+  overflow: hidden;
   height: 200px;
 }
 

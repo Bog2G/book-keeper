@@ -3,6 +3,8 @@
   grid-template-columns: repeat(3, 1fr);
   column-gap: 1.5rem;
   row-gap: 1rem;
+  width: 613px;
+  height: 247px;
 }
 
 .new-book-input:nth-child(1),
@@ -24,6 +26,10 @@
   border-radius: 8px;
   border: white 1px solid;
   height: 21px;
+}
+
+.new-book-input input:invalid {
+  border: red 2px solid;
 }
 
 .new-book-input input:focus {
