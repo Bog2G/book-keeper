@@ -10,6 +10,8 @@ function App() {
       startDate: new Date().toLocaleString("en-GB").slice(0, 10),
       description:
         "A family heads to an isolated hotel for the winter where a sinister presence. A family heads to familifwfegef",
+      pages: 485,
+      price: 14.99,
     },
     {
       id: 2,
@@ -18,6 +20,8 @@ function App() {
       startDate: new Date().toLocaleString("en-GB").slice(0, 10),
       description:
         "A family heads to an isolated hotel for the winter where a sinister presence. A family heads to familifwfegef",
+      pages: 485,
+      price: 14.99,
     },
     {
       id: 3,
@@ -26,6 +30,8 @@ function App() {
       startDate: new Date().toLocaleString("en-GB").slice(0, 10),
       description:
         "A family heads to an isolated hotel for the winter where a sinister presence. A family heads to familifwfegef",
+      pages: 485,
+      price: 14.99,
     },
   ];
 

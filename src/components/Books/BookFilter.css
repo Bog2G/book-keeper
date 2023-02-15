@@ -1,0 +1,16 @@
+.book-filter {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 15px;
+  margin-bottom: 10px;
+}
+
+.book-filter input {
+  border-radius: 8px;
+  border: transparent solid;
+}
+
+.book-filter input:focus {
+  outline: none;
+}
