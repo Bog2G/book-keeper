@@ -5,9 +5,15 @@ import { useState, useEffect } from "react";
 function Book(props) {
   const [book, setBook] = useState(false);
   const [isShown, setIsShown] = useState(true);
+  const [currPage, setCurrPage] = useState(
+    props.title === localStorage.getItem(`${props.title}`)
+      ? "1"
+      : localStorage.getItem(`${props.title}`)
+  );
 
   const filteredValue = props.filterValue;
 
+  // listen for changes to the filtered value or the title itself and update rerender the component with the desired functuion
   useEffect(() => {
     console.log(filteredValue);
     setIsShown(props.title.toLowerCase().includes(filteredValue.toLowerCase()));
@@ -28,14 +34,20 @@ function Book(props) {
     setBook(!book);
   };
 
+  const handlePageChange = (e) => {
+    console.log(props.title);
+    setCurrPage(e.currentTarget.textContent);
+    localStorage.setItem(`${props.title}`, e.currentTarget.textContent);
+  };
+
   return (
     <>
       {isShown && (
-        <div
-          onClick={expandBook}
-          className={book ? "book-expanded" : "book"}
-          id="main-book"
-        >
+        <div className={book ? "book-expanded" : "book"}>
+          <div
+            className={book ? "click-area-expanded" : "click-area"}
+            onClick={expandBook}
+          />
           <div className={book ? "book-data-1-expanded" : "book-data-1"}>
             <h4>{book ? props.title : truncator(props.title)}</h4>
             <p> by {props.author} </p>
@@ -48,7 +60,18 @@ function Book(props) {
             {book ? props.description : truncator(props.description)}
           </div>
           <div className={book ? "book-data-4-expanded" : "book-data-4"}>
-            <p>Page 254 of {props.pages} </p>
+            <p>
+              Page{" "}
+              <span
+                className="page-num"
+                contentEditable="true"
+                suppressContentEditableWarning="true"
+                onInput={handlePageChange}
+              >
+                {currPage}
+              </span>{" "}
+              of {props.pages}{" "}
+            </p>
           </div>
         </div>
       )}
