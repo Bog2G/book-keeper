@@ -2,9 +2,9 @@
   display: flex;
   flex-direction: column;
   margin-top: 5rem;
-  border: 2px solid #240d1d;
+  border: 2px solid #2c3639;
   padding: 2.5rem;
-  background: #240d1d;
+  background: #2c3639;
   border-radius: 15px;
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.35);
 }
