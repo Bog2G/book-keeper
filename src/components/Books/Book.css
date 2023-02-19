@@ -6,14 +6,12 @@
   background-color: #a27b5c;
   margin-bottom: 8px;
   height: 100px;
-  cursor: pointer;
   transition: height 0.5s;
   align-items: center;
 }
 
 .book-expanded {
   display: flex;
-  cursor: pointer;
   flex-direction: column;
   border: 2px solid #a27b5c;
   border-radius: 11px;
@@ -28,12 +26,14 @@
   height: 10vh;
   width: 31vw;
   position: absolute;
+  cursor: pointer;
 }
 
 .click-area-expanded {
   position: absolute;
   height: 20vh;
   width: 39.2vw;
+  cursor: pointer;
 }
 
 .book-data-1 {
@@ -101,9 +101,17 @@
   position: absolute;
 }
 
+.page-num {
+  cursor: pointer;
+}
+
 .page-num:focus {
   background: white;
   outline: black;
   outline-width: 2px;
   border-radius: 4px;
+}
+
+.valid-number {
+  font-size: small;
 }

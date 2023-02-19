@@ -10,6 +10,7 @@ function Book(props) {
       ? "1"
       : localStorage.getItem(`${props.title}`)
   );
+  const [prompt, setPrompt] = useState(false);
 
   const filteredValue = props.filterValue;
 
@@ -43,8 +44,18 @@ function Book(props) {
   };
 
   const handlePageChange = (e) => {
-    setCurrPage(e.currentTarget.textContent);
-    localStorage.setItem(`${props.title}`, e.currentTarget.textContent);
+    if (
+      !isNaN(e.currentTarget.textContent) &&
+      e.currentTarget.textContent <= props.pages
+    ) {
+      setCurrPage(e.currentTarget.textContent);
+      localStorage.setItem(`${props.title}`, e.currentTarget.textContent);
+      setPrompt(false);
+      console.log("It's a valid number");
+    } else {
+      setPrompt(true);
+      console.log("Fuck you");
+    }
   };
 
   return (
@@ -79,6 +90,9 @@ function Book(props) {
               </span>{" "}
               of {props.pages}{" "}
             </p>
+            {prompt && (
+              <p className="valid-number"> Please enter a valid number!</p>
+            )}
           </div>
         </div>
       )}
