@@ -43,7 +43,7 @@ function App() {
   return (
     <div className="main">
       <NewBook onNewBook={addBookHandler} />
-      <Books data={books} />
+      <Books data={books} count={books.length} />
     </div>
   );
 }

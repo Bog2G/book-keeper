@@ -19,6 +19,14 @@ function Book(props) {
     setIsShown(props.title.toLowerCase().includes(filteredValue.toLowerCase()));
   }, [filteredValue, props.title]);
 
+  useEffect(() => {
+    if (isShown) {
+      props.getCount(true);
+    } else {
+      props.getCount(false);
+    }
+  }, [isShown]);
+
   // truncate the title and the description so they dont overflow
   const truncator = (str) => {
     if (str === props.description) {
@@ -35,7 +43,6 @@ function Book(props) {
   };
 
   const handlePageChange = (e) => {
-    console.log(props.title);
     setCurrPage(e.currentTarget.textContent);
     localStorage.setItem(`${props.title}`, e.currentTarget.textContent);
   };
