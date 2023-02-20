@@ -32,33 +32,17 @@ export default function Books(props) {
       {shownNum === props.count && (
         <p className="not-found">Nothing Found. Try again.</p>
       )}
-      <Book
-        title={props.data[0].title}
-        author={props.data[0].author}
-        start={props.data[0].startDate}
-        description={props.data[0].description}
-        pages={props.data[0].pages}
-        filterValue={filteredValue}
-        getCount={(isShown) => handleBookCount(isShown)}
-      />
-      <Book
-        title={props.data[1].title}
-        author={props.data[1].author}
-        start={props.data[1].startDate}
-        description={props.data[1].description}
-        pages={props.data[1].pages}
-        filterValue={filteredValue}
-        getCount={(isShown) => handleBookCount(isShown)}
-      />
-      <Book
-        title={props.data[2].title}
-        author={props.data[2].author}
-        start={props.data[2].startDate}
-        description={props.data[2].description}
-        pages={props.data[2].pages}
-        filterValue={filteredValue}
-        getCount={(isShown) => handleBookCount(isShown)}
-      />
+      {props.data.map((book) => (
+        <Book
+          title={book.title}
+          author={book.author}
+          start={book.startDate}
+          description={book.description}
+          pages={book.pages}
+          filterValue={filteredValue}
+          getCount={(isShown) => handleBookCount(isShown)}
+        />
+      ))}
     </Card>
   );
 }
