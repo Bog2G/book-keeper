@@ -6,6 +6,7 @@ export default function NewBook(props) {
     const bookData = {
       ...enteredBookData,
       id: Math.random().toString(),
+      startDate: new Date().toLocaleString("en-GB").slice(0, 10),
     };
     props.onNewBook(bookData);
     console.log(bookData);

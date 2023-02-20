@@ -2,7 +2,7 @@ import Book from "./Book";
 import "./Books.css";
 import Card from "../Card";
 import BookFilter from "./BookFilter";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 export default function Books(props) {
   // here used a state hook to keep track of the value in the filter bar and pass it down to the book component
@@ -17,14 +17,6 @@ export default function Books(props) {
       setShownNum((prevNum) => prevNum - 1);
     }
   };
-
-  useEffect(() => {
-    if (shownNum === props.count) {
-      console.log("Nopper");
-    } else {
-      console.log(shownNum);
-    }
-  }, [shownNum, props.count]);
 
   return (
     <Card>

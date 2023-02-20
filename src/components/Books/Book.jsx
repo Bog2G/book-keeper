@@ -46,15 +46,13 @@ function Book(props) {
   const handlePageChange = (e) => {
     if (
       !isNaN(e.currentTarget.textContent) &&
-      e.currentTarget.textContent <= props.pages
+      parseInt(e.currentTarget.textContent) <= parseInt(props.pages)
     ) {
       setCurrPage(e.currentTarget.textContent);
       localStorage.setItem(`${props.title}`, e.currentTarget.textContent);
       setPrompt(false);
-      console.log("It's a valid number");
     } else {
       setPrompt(true);
-      console.log("Fuck you");
     }
   };
 
