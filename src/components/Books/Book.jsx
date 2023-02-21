@@ -6,9 +6,7 @@ function Book(props) {
   const [book, setBook] = useState(false);
   const [isShown, setIsShown] = useState(true);
   const [currPage, setCurrPage] = useState(
-    props.title === localStorage.getItem(`${props.title}`)
-      ? "1"
-      : localStorage.getItem(`${props.title}`)
+    props.title in localStorage ? localStorage.getItem(`${props.title}`) : "1"
   );
   const [prompt, setPrompt] = useState(false);
 

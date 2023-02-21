@@ -27,6 +27,7 @@
   width: 31vw;
   position: absolute;
   cursor: pointer;
+  border-right: 1px solid black;
 }
 
 .click-area-expanded {
