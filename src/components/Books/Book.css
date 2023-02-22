@@ -8,6 +8,7 @@
   height: 100px;
   transition: height 0.5s;
   align-items: center;
+  position: relative;
 }
 
 .book-expanded {
@@ -20,11 +21,12 @@
   transition: height 0.5s;
   overflow: hidden;
   height: 200px;
+  position: relative;
 }
 
 .click-area {
-  height: 10vh;
-  width: 31vw;
+  height: 100%;
+  width: 78%;
   position: absolute;
   cursor: pointer;
   border-right: 1px solid black;
@@ -32,8 +34,8 @@
 
 .click-area-expanded {
   position: absolute;
-  height: 20vh;
-  width: 39.2vw;
+  height: 100%;
+  width: 100%;
   cursor: pointer;
 }
 
