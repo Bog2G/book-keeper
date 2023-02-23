@@ -44,6 +44,12 @@
   outline: transparent;
 }
 
+.newBook-action {
+  display: flex;
+  justify-content: space-between;
+  width: 56%;
+}
+
 .newBook-action button {
   padding: 9px;
   background: #504320;

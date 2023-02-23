@@ -64,71 +64,76 @@ export default function BookForm(props) {
   };
 
   return (
-    <form onSubmit={submitHandler}>
-      <div className="new-book-inputs">
-        <div className="new-book-input">
-          <label for="title">Book Title</label>
-          <br />
-          <input
-            type="text"
-            value={userInput.title}
-            name="title"
-            id="title"
-            onChange={getTitle}
-          />
+    <>
+      <form onSubmit={submitHandler}>
+        <div className="new-book-inputs">
+          <div className="new-book-input">
+            <label for="title">Book Title</label>
+            <br />
+            <input
+              type="text"
+              value={userInput.title}
+              name="title"
+              id="title"
+              onChange={getTitle}
+            />
+          </div>
+          <div className="new-book-input">
+            <label for="description">Book Description</label>
+            <br />
+            <textarea
+              rows="5"
+              cols="20"
+              name="description"
+              value={userInput.description}
+              id="description"
+              onChange={getDescription}
+            />
+          </div>
+          <div className="new-book-input">
+            <label for="author">Author</label>
+            <br />
+            <input
+              type="text"
+              value={userInput.author}
+              name="author"
+              id="author"
+              onChange={getAuthor}
+            />
+          </div>
+          <div className="new-book-input">
+            <label for="pages">Pages</label>
+            <br />
+            <input
+              type="number"
+              value={userInput.pages}
+              name="pages"
+              id="pages"
+              min="1"
+              onChange={getPages}
+            />
+          </div>
+          <div className="new-book-input">
+            <label for="price">Price</label>
+            <br />
+            <input
+              type="number"
+              value={userInput.price}
+              name="price"
+              id="price"
+              min="0"
+              step="0.01"
+              onChange={getPrice}
+            />
+          </div>
         </div>
-        <div className="new-book-input">
-          <label for="description">Book Description</label>
-          <br />
-          <textarea
-            rows="5"
-            cols="20"
-            name="description"
-            value={userInput.description}
-            id="description"
-            onChange={getDescription}
-          />
+        <div className="newBook-action">
+          <button className="cancel-btn" onClick={() => props.active(false)}>
+            Cancel
+          </button>
+          <button type="submit">Add Book</button>
         </div>
-        <div className="new-book-input">
-          <label for="author">Author</label>
-          <br />
-          <input
-            type="text"
-            value={userInput.author}
-            name="author"
-            id="author"
-            onChange={getAuthor}
-          />
-        </div>
-        <div className="new-book-input">
-          <label for="pages">Pages</label>
-          <br />
-          <input
-            type="number"
-            value={userInput.pages}
-            name="pages"
-            id="pages"
-            min="1"
-            onChange={getPages}
-          />
-        </div>
-        <div className="new-book-input">
-          <label for="price">Price</label>
-          <br />
-          <input
-            type="number"
-            value={userInput.price}
-            name="price"
-            id="price"
-            min="0"
-            step="0.01"
-            onChange={getPrice}
-          />
-        </div>
-      </div>
-      <div className="newBook-action">
-        <button type="submit">Add Book</button>
-      </div>
-    </form>
+      </form>
+    </>
   );
 }
