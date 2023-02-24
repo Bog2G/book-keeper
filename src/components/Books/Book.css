@@ -119,3 +119,9 @@
 .valid-number {
   font-size: small;
 }
+
+@media (max-width: 700px) {
+  .book-data-1 h4 {
+    margin-bottom: 0;
+  }
+}

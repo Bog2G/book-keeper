@@ -5,4 +5,11 @@
   flex-direction: column;
   height: 100%;
   margin-top: 2.5rem;
+  width: auto;
+}
+
+@media (max-width: 690px) {
+  .main {
+    width: fit-content;
+  }
 }
