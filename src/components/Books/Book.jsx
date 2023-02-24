@@ -8,6 +8,11 @@ function Book(props) {
     props.title in localStorage ? localStorage.getItem(`${props.title}`) : "1"
   );
   const [prompt, setPrompt] = useState(false);
+  const [isFinished, setIsFinished] = useState(false);
+  const [finishedText, setFinishedText] = useState({
+    textContent: "Still Reading",
+    finishDate: "Ongoing",
+  });
 
   // truncate the title and the description so they dont overflow
   const truncator = (str) => {
@@ -37,6 +42,20 @@ function Book(props) {
     }
   };
 
+  useEffect(() => {
+    if (isFinished) {
+      setFinishedText({
+        textContent: "Finished",
+        finishDate: new Date().toLocaleString("en-GB").slice(0, 10),
+      });
+    } else {
+      setFinishedText({
+        textContent: "Still Reading",
+        finishDate: "Ongoing",
+      });
+    }
+  }, [isFinished]);
+
   return (
     <>
       <div className={book ? "book-expanded" : "book"}>
@@ -50,12 +69,19 @@ function Book(props) {
         </div>
         <div className={book ? "book-data-2-expanded" : "book-data-2"}>
           <p>Start date: {props.start}</p>
-          <p>Finish Date: Ongoing</p>
+          <p>Finish Date: {finishedText.finishDate}</p>
         </div>
         <div className={book ? "book-data-3-expanded" : "book-data-3"}>
           {book ? props.description : truncator(props.description)}
         </div>
         <div className={book ? "book-data-4-expanded" : "book-data-4"}>
+          <p className="status">
+            Status:{" "}
+            <span onClick={() => setIsFinished(!isFinished)}>
+              {" "}
+              {finishedText.textContent}{" "}
+            </span>
+          </p>
           <p>
             Page{" "}
             <span
