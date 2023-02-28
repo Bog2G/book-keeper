@@ -56,6 +56,10 @@ function Book(props) {
     }
   }, [isFinished]);
 
+  useEffect(() => {
+    props.getPages(currPage);
+  }, [currPage]);
+
   return (
     <>
       <div className={book ? "book-expanded" : "book"}>
