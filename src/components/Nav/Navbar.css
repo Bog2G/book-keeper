@@ -1,0 +1,9 @@
+.navbar {
+  background: rgb(27, 27, 27);
+  top: 0;
+  position: fixed;
+  width: 100%;
+  height: 8vh;
+  margin-bottom: 3rem;
+  color: white;
+}

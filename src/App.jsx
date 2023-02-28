@@ -1,6 +1,7 @@
 import "./App.css";
 import Books from "./components/Books/Books";
 import NewBook from "./components/NewBook/NewBook";
+import Navbar from "./components/Nav/Navbar";
 import { useState } from "react";
 
 // this is an hard coded array of book objects to initialize the state
@@ -50,10 +51,13 @@ function App() {
   };
 
   return (
-    <div className="main">
-      <NewBook onNewBook={addBookHandler} />
-      <Books data={books} count={books.length} />
-    </div>
+    <>
+      <Navbar data={books} />
+      <div className="main">
+        <NewBook onNewBook={addBookHandler} />
+        <Books data={books} count={books.length} />
+      </div>
+    </>
   );
 }
 

@@ -1,9 +1,8 @@
 import "./Books.css";
 import Card from "../Card";
 import BookFilter from "./BookFilter";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import BookList from "./BookList";
-import Tracker from "./Tracker";
 
 export default function Books(props) {
   // here used a state hook to keep track of the value in the filter bar and pass it down to the book component
@@ -12,11 +11,6 @@ export default function Books(props) {
   const [totalPages, setTotalPages] = useState(0);
   const [prompt, setPrompt] = useState(false);
 
-  // get the total price of all the books
-  const TotalSpend = props.data.reduce(
-    (price, totalPrice) => price + Number(totalPrice.price),
-    0
-  );
   // <Tracker totalSpend={TotalSpend} allPages={totalPages} />
   console.log(`Total read pages ${totalPages}`);
 
