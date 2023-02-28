@@ -7,7 +7,6 @@ function Book(props) {
   const [currPage, setCurrPage] = useState(
     props.title in localStorage ? localStorage.getItem(`${props.title}`) : "1"
   );
-  const [prompt, setPrompt] = useState(false);
   const [isFinished, setIsFinished] = useState(false);
   const [finishedText, setFinishedText] = useState({
     textContent: "Still Reading",
@@ -36,9 +35,9 @@ function Book(props) {
     ) {
       setCurrPage(e.currentTarget.textContent);
       localStorage.setItem(`${props.title}`, e.currentTarget.textContent);
-      setPrompt(false);
+      props.getPrompt(false);
     } else {
-      setPrompt(true);
+      props.getPrompt(true);
     }
   };
 
@@ -98,9 +97,6 @@ function Book(props) {
             </span>{" "}
             of {props.pages}{" "}
           </p>
-          {prompt && (
-            <p className="valid-number"> Please enter a valid number!</p>
-          )}
         </div>
       </div>
     </>

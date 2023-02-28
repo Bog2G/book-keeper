@@ -1,0 +1,8 @@
+.valid-number {
+  font-size: medium;
+  font-weight: bolder;
+  color: rgb(190, 14, 14);
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
