@@ -26,10 +26,6 @@
   height: 21px;
 }
 
-.new-book-input input:invalid {
-  border: red 2px solid;
-}
-
 .new-book-input input:focus {
   outline: none;
 }

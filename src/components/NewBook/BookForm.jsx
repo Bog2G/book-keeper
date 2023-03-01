@@ -10,34 +10,66 @@ export default function BookForm(props) {
     pages: "",
     price: "",
   });
+  const [isValid, setIsValid] = useState({
+    title: true,
+    description: true,
+    author: true,
+    pages: true,
+    price: true,
+  });
+
+  const resetValues = () => {
+    setIsValid({
+      title: true,
+      description: true,
+      author: true,
+      pages: true,
+      price: true,
+    });
+  };
 
   // here i copy the other value from the object so they dont get lost and i overwrite the value that im listening for
-  // and i pass the setValue function a function so im sure im suing the latest state value and not an outdated one
+  // and i pass the setValue function a function so im sure im using the latest state value and not an outdated one
   const getTitle = (e) => {
+    resetValues();
     setUserInput((prevState) => {
       return { ...prevState, title: e.target.value };
     });
   };
 
   const getDescription = (e) => {
+    resetValues();
     setUserInput((prevState) => {
       return { ...prevState, description: e.target.value };
     });
   };
 
   const getAuthor = (e) => {
+    resetValues();
     setUserInput((prevState) => {
       return { ...prevState, author: e.target.value };
     });
   };
 
   const getPages = (e) => {
+    resetValues();
+    if (Number(e.target.value) < 0) {
+      setIsValid((prevState) => {
+        return { ...prevState, pages: false };
+      });
+    }
     setUserInput((prevState) => {
       return { ...prevState, pages: e.target.value };
     });
   };
 
   const getPrice = (e) => {
+    resetValues();
+    if (Number(e.target.value) < 0) {
+      setIsValid((prevState) => {
+        return { ...prevState, price: false };
+      });
+    }
     setUserInput((prevState) => {
       return { ...prevState, price: e.target.value };
     });
@@ -47,6 +79,24 @@ export default function BookForm(props) {
   const submitHandler = (e) => {
     // we prevent the form from directly submitting and reloading the page
     e.preventDefault();
+
+    // copy the data into a temp object
+    let newIsValid = { ...isValid };
+
+    // check if any fields are empty
+    for (let key in userInput) {
+      if (userInput[key] === "") {
+        newIsValid[key] = false;
+      }
+    }
+
+    setIsValid(newIsValid);
+
+    for (let key in isValid) {
+      if (!newIsValid[key]) {
+        return;
+      }
+    }
 
     const bookData = {
       ...userInput,
@@ -76,6 +126,7 @@ export default function BookForm(props) {
               name="title"
               id="title"
               onChange={getTitle}
+              style={{ borderColor: isValid.title ? "white" : "red" }}
             />
           </div>
           <div className="new-book-input">
@@ -88,6 +139,7 @@ export default function BookForm(props) {
               value={userInput.description}
               id="description"
               onChange={getDescription}
+              style={{ borderColor: isValid.description ? "white" : "red" }}
             />
           </div>
           <div className="new-book-input">
@@ -99,6 +151,7 @@ export default function BookForm(props) {
               name="author"
               id="author"
               onChange={getAuthor}
+              style={{ borderColor: isValid.author ? "white" : "red" }}
             />
           </div>
           <div className="new-book-input">
@@ -111,6 +164,7 @@ export default function BookForm(props) {
               id="pages"
               min="1"
               onChange={getPages}
+              style={{ borderColor: isValid.pages ? "white" : "red" }}
             />
           </div>
           <div className="new-book-input">
@@ -124,6 +178,7 @@ export default function BookForm(props) {
               min="0"
               step="0.01"
               onChange={getPrice}
+              style={{ borderColor: isValid.price ? "white" : "red" }}
             />
           </div>
         </div>
