@@ -104,6 +104,23 @@
   position: relative;
 }
 
+.delete {
+  background: red;
+  border-radius: 1.7rem;
+  padding-left: 3px;
+  padding-right: 3px;
+  color: white;
+  font-size: smaller;
+  cursor: pointer;
+  position: absolute;
+  top: -11px;
+  right: 5px;
+}
+
+.delete:hover {
+  background: #640c0c;
+}
+
 .status {
   margin-bottom: 0;
 }
@@ -133,5 +150,14 @@
 @media (max-width: 700px) {
   .book-data-1 h4 {
     margin-bottom: 0;
+  }
+}
+
+@media (max-width: 850px) {
+  .delete {
+    top: 0px;
+    right: 3px;
+    font-size: 12px;
+    border-radius: 1rem;
   }
 }

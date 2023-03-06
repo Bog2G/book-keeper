@@ -12,6 +12,7 @@ function Book(props) {
     textContent: "Still Reading",
     finishDate: "Ongoing",
   });
+  const [deleted, setDeleted] = useState("");
 
   // truncate the title and the description so they dont overflow
   const truncator = (str) => {
@@ -40,6 +41,10 @@ function Book(props) {
       props.getPrompt(true);
     }
   };
+
+  useEffect(() => {
+    props.getDeletedBook(deleted);
+  }, [deleted]);
 
   useEffect(() => {
     if (isFinished) {
@@ -74,6 +79,9 @@ function Book(props) {
           {book ? props.description : truncator(props.description)}
         </div>
         <div className={book ? "book-data-4-expanded" : "book-data-4"}>
+          <div className="delete" onClick={() => setDeleted(props.title)}>
+            x
+          </div>
           <p className="status">
             Status:{" "}
             <span onClick={() => setIsFinished(!isFinished)}>

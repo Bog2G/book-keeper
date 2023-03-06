@@ -9,6 +9,7 @@ export default function BookList(props) {
   if (props.filteredBooks.length === 0) {
     return <p className="not-found">Nothing Found. Try again.</p>;
   }
+
   return (
     <>
       {props.filteredBooks.map((book) => (
@@ -20,6 +21,7 @@ export default function BookList(props) {
           description={book.description}
           pages={book.pages}
           getPrompt={handlePrompt}
+          getDeletedBook={props.getDeletedTitle}
         />
       ))}
     </>

@@ -10,12 +10,20 @@ export default function Books(props) {
   const [filteredValue, setFilteredValue] = useState("");
   const [totalPages, setTotalPages] = useState(0);
   const [prompt, setPrompt] = useState(false);
+  const [deletedTitle, setDeletedTitle] = useState([]);
 
   // <Tracker totalSpend={TotalSpend} allPages={totalPages} />
   console.log(`Total read pages ${totalPages}`);
 
+  const deletedBookHandler = (title) => {
+    setDeletedTitle((prevState) => [...prevState, title]);
+  };
+
   const filteredBooks = props.data.filter((book) => {
-    return book.title.toLowerCase().includes(filteredValue.toLowerCase());
+    return (
+      book.title.toLowerCase().includes(filteredValue.toLowerCase()) &&
+      !deletedTitle.includes(book.title)
+    );
   });
 
   return (
@@ -26,6 +34,7 @@ export default function Books(props) {
         filteredBooks={filteredBooks}
         setPages={setTotalPages}
         setPrompt={setPrompt}
+        getDeletedTitle={deletedBookHandler}
       />
     </Card>
   );
