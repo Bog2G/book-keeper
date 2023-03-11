@@ -1,7 +1,9 @@
 import "./BookForm.css";
-import { useState } from "react";
+import { ErrorContext } from "../../App";
+import { useContext, useState } from "react";
 
 export default function BookForm(props) {
+  const { ErrorState, setErrorState } = useContext(ErrorContext);
   // instead of writing multiple states i store every value i need for my inputs in an object and pass it to the state hook
   const [userInput, setUserInput] = useState({
     title: "",
@@ -94,6 +96,7 @@ export default function BookForm(props) {
 
     for (let key in isValid) {
       if (!newIsValid[key]) {
+        setErrorState(true);
         return;
       }
     }

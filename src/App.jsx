@@ -2,7 +2,8 @@ import "./App.css";
 import Books from "./components/Books/Books";
 import NewBook from "./components/NewBook/NewBook";
 import Navbar from "./components/Nav/Navbar";
-import { useState } from "react";
+import ErrorWindow from "./components/NewBook/ErrorWindow";
+import { useState, createContext } from "react";
 
 // this is an hard coded array of book objects to initialize the state
 const DUMMY_BOOKS = [
@@ -38,8 +39,11 @@ const DUMMY_BOOKS = [
   },
 ];
 
+export const ErrorContext = createContext(null);
+
 function App() {
   const [books, setBooks] = useState(DUMMY_BOOKS);
+  const [errorState, setErrorState] = useState(false);
 
   const addBookHandler = (newBook) => {
     // here i get the new book object and append it in the first position of the books array
@@ -52,11 +56,17 @@ function App() {
 
   return (
     <>
-      <Navbar data={books} />
-      <div className="main">
-        <NewBook onNewBook={addBookHandler} />
-        <Books data={books} count={books.length} />
-      </div>
+      <ErrorContext.Provider value={{ errorState, setErrorState }}>
+        <div
+          className="main"
+          style={{ filter: errorState ? "blur(1.5rem)" : "" }}
+        >
+          <Navbar data={books} />
+          <NewBook onNewBook={addBookHandler} />
+          <Books data={books} count={books.length} />
+          {errorState && <ErrorWindow />}
+        </div>
+      </ErrorContext.Provider>
     </>
   );
 }

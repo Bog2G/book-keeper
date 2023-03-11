@@ -138,6 +138,7 @@
 
 .page-num {
   cursor: pointer;
+  text-decoration: underline;
 }
 
 .page-num:focus {

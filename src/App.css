@@ -3,9 +3,9 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 100%;
-  margin-top: 8rem;
+  height: 100vh;
   width: auto;
+  position: relative;
 }
 
 @media (max-width: 690px) {
