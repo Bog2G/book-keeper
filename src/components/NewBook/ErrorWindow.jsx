@@ -6,7 +6,8 @@ export default function ErrorWindow(props) {
   const { errorState, setErrorState } = useContext(ErrorContext);
   return (
     <div className="error-window">
-      <p className="error-text"> Please enter valid (non-empty) value!</p>
+      <div className="error-header"></div>
+      <p className="error-text"> Please enter valid (non-empty) values!</p>
       <button className="confirm" onClick={() => setErrorState(false)}>
         Okay
       </button>

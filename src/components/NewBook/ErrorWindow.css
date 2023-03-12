@@ -2,16 +2,27 @@
   display: flex;
   width: 25%;
   min-width: 370px;
+  min-height: 250px;
   height: 30%;
   justify-content: center;
   align-items: center;
   background: white;
   z-index: 1;
-  position: absolute;
+  position: fixed;
   border-radius: 1.2rem;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.error-header {
+  width: 100%;
+  height: 19%;
+  background: #59037a;
+  top: 0;
+  position: absolute;
+  border-radius: 1.2rem 1.2rem 0rem 0rem;
 }
 
 .confirm {
@@ -19,8 +30,8 @@
   bottom: 0;
   margin-bottom: 1rem;
   border-radius: 10px;
-  background: red;
-  border: red solid 1px;
+  background: #59037a;
+  border: #59037a solid 1px;
   padding: 5px 8px 5px 8px;
   color: white;
   font: bold;
