@@ -57,15 +57,12 @@ function App() {
   return (
     <>
       <ErrorContext.Provider value={{ errorState, setErrorState }}>
-        <div
-          className="main"
-          style={{ filter: errorState ? "blur(1.5rem)" : "" }}
-        >
+        <div className={`main ${errorState ? "error-shown" : ""}`}>
           <Navbar data={books} />
           <NewBook onNewBook={addBookHandler} />
           <Books data={books} count={books.length} />
-          {errorState && <ErrorWindow />}
         </div>
+        {errorState && <ErrorWindow />}
       </ErrorContext.Provider>
     </>
   );

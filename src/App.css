@@ -13,3 +13,7 @@
     width: fit-content;
   }
 }
+
+.error-shown {
+  filter: blur(10px);
+}

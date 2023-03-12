@@ -2,7 +2,7 @@ import "./ErrorWindow.css";
 import { ErrorContext } from "../../App";
 import { useContext } from "react";
 
-export default function ErrorWindow() {
+export default function ErrorWindow(props) {
   const { errorState, setErrorState } = useContext(ErrorContext);
   return (
     <div className="error-window">
