@@ -32,7 +32,8 @@ function Book(props) {
   const handlePageChange = (e) => {
     if (
       !isNaN(e.currentTarget.textContent) &&
-      parseInt(e.currentTarget.textContent) <= parseInt(props.pages)
+      parseInt(e.currentTarget.textContent) <= parseInt(props.pages) &&
+      parseInt(e.currentTarget.textContent) >= 0
     ) {
       setCurrPage(e.currentTarget.textContent);
       localStorage.setItem(`${props.title}`, e.currentTarget.textContent);
@@ -49,7 +50,7 @@ function Book(props) {
   useEffect(() => {
     if (isFinished) {
       setFinishedText({
-        textContent: "Finished",
+        textContent: "Still Reading",
         finishDate: new Date().toLocaleString("en-GB").slice(0, 10),
       });
     } else {
@@ -72,8 +73,8 @@ function Book(props) {
           <p> by {props.author} </p>
         </div>
         <div className={book ? "book-data-2-expanded" : "book-data-2"}>
-          <p>Start date: {props.start}</p>
-          <p>Finish Date: {finishedText.finishDate}</p>
+          <p>Start Date: {props.start}</p>
+          <p>End Date: {finishedText.finishDate}</p>
         </div>
         <div className={book ? "book-data-3-expanded" : "book-data-3"}>
           {book ? props.description : truncator(props.description)}
@@ -84,7 +85,12 @@ function Book(props) {
           </div>
           <p className="status">
             Status:{" "}
-            <span onClick={() => setIsFinished(!isFinished)}>
+            <span
+              onClick={() => setIsFinished(!isFinished)}
+              style={{
+                textDecoration: isFinished ? "line-through" : "none",
+              }}
+            >
               {" "}
               {finishedText.textContent}{" "}
             </span>

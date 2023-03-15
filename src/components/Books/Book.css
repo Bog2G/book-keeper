@@ -128,7 +128,6 @@
 .status span {
   cursor: pointer;
   color: rgb(21, 63, 21);
-  text-decoration: underline;
 }
 
 .book-data-4-expanded {
