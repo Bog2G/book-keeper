@@ -1,8 +1,9 @@
+import ReactDOM from "react-dom";
 import "./ErrorWindow.css";
 import { ErrorContext } from "../../App";
 import { useContext } from "react";
 
-export default function ErrorWindow(props) {
+const ModalWind = (props) => {
   const { errorState, setErrorState } = useContext(ErrorContext);
   return (
     <div className="error-window">
@@ -12,5 +13,16 @@ export default function ErrorWindow(props) {
         Okay
       </button>
     </div>
+  );
+};
+
+export default function ErrorWindow(props) {
+  return (
+    <>
+      {ReactDOM.createPortal(
+        <ModalWind />,
+        document.querySelector("#modal-root")
+      )}
+    </>
   );
 }
