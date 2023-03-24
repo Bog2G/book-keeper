@@ -16,6 +16,7 @@ const ModalWind = (props) => {
   );
 };
 
+// here a portal is used to render the component in the real DOM above the root element so it doesnt mess with the styling
 export default function ErrorWindow(props) {
   return (
     <>

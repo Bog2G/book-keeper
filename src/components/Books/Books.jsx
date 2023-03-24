@@ -8,12 +8,8 @@ export default function Books(props) {
   // here used a state hook to keep track of the value in the filter bar and pass it down to the book component
   // also the parent component is controlling the data in the child component so that is called a controlled component
   const [filteredValue, setFilteredValue] = useState("");
-  const [totalPages, setTotalPages] = useState(0);
   const [prompt, setPrompt] = useState(false);
   const [deletedTitle, setDeletedTitle] = useState([]);
-
-  // <Tracker totalSpend={TotalSpend} allPages={totalPages} />
-  console.log(`Total read pages ${totalPages}`);
 
   const deletedBookHandler = (title) => {
     setDeletedTitle((prevState) => [...prevState, title]);
@@ -32,7 +28,6 @@ export default function Books(props) {
       <BookFilter setFilteredValue={setFilteredValue} />
       <BookList
         filteredBooks={filteredBooks}
-        setPages={setTotalPages}
         setPrompt={setPrompt}
         getDeletedTitle={deletedBookHandler}
       />

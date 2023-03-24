@@ -7,9 +7,13 @@ export default function Navbar(props) {
     (price, totalPrice) => price + Number(totalPrice.price),
     0
   );
+
+  const bookTitles = props.data.map((book) => book.title);
+
+  console.log(bookTitles);
   return (
     <div className="navbar">
-      <Tracker totalSpend={totalSpend} />
+      <Tracker totalSpend={totalSpend} bookTitles={bookTitles} />
     </div>
   );
 }
